@@ -12,24 +12,22 @@ const int N = 1e7+10;
 ll pow_x(ll a,ll n){
     ll res = 1;
     while(n){
-        if(n%2){
+        if(n&1){
             res *= a;
-            n--;
         }
-        a*=a;
-        n/=2;
+        a=a<<1;
+        n>>=1;
     }
     return res;
 }
 ll mod_x(ll a,ll n,int m){
     ll res = 1;
     while(n){
-        if(n%2){
-            res = (a*a)%m;
-            n--;
+        if(n&1){
+            res = (a*a)%m;            
         }
-        a = (a*a)%m;
-        n/=2;
+        a = (a<<1)%m;
+        n>>=1;
     }
     return res;
 }
